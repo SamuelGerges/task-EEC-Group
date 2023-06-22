@@ -1,0 +1,8 @@
+.w-5{
+    width: 20px;
+}
+
+
+.sm\:hidden{
+    display: none !important;
+}

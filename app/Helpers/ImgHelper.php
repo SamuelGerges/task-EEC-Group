@@ -1,0 +1,88 @@
+<?php
+
+
+namespace App\Helpers;
+
+
+use Illuminate\Support\Facades\File;
+
+class ImgHelper
+{
+
+    public static function uploadImage($folder, $image)
+    {
+        if (!$image) {
+            return '';
+        }
+        $image->store('/', $folder);
+        $filename = "uploads/$folder/" . $image->hashName();
+        return $filename;
+
+    }
+
+    public static function deleteImage($folder, $oldImg)
+    {
+        try {
+            \Illuminate\Support\Facades\Storage::disk($folder)->delete($oldImg);
+
+        } catch (\Exception $exception) {
+
+        }
+    }
+
+    public static function returnImageLink($obj)
+    {
+
+        if (!$obj) {
+            return null;
+        }
+
+        $path = $obj;
+        if (is_object(json_decode($obj))) {
+            $obj = json_decode($obj);
+
+            if (isset($obj->path)) {
+                $path = $obj->path;
+            }
+        }
+
+        if (File::exists($path)) {
+            return url($path);
+        }
+
+        return url("/images/default_ad_img.jpg");
+
+    }
+
+    public static function returnSliderLinks($links)
+    {
+
+
+        $returnLinks = [];
+        $links       = json_decode($links, true);
+        foreach ($links as $link) {
+            $returnLinks[] = self::returnImageLink($link);
+        }
+
+        return $returnLinks;
+
+    }
+
+    public static function getImgPathFromUrl($link)
+    {
+        $path = parse_url($link);
+        $path = ltrim($path['path'], '/');
+        return $path;
+    }
+
+    public static function getSliderPathFromUrl($links)
+    {
+        $data = [];
+        foreach ($links as $link) {
+            $data[] = self::getImgPathFromUrl($link);
+        }
+
+        return $data;
+    }
+
+}
