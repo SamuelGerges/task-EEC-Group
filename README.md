@@ -3,7 +3,6 @@
 
     git clone git@github.com:SamuelGerges/task-EEC-Group.git
     cd SD_Project/
-
 ### Composer
 
     composer install
@@ -31,9 +30,10 @@
     select2
     
 
-### video Of task ``` url: 
+### video Of task ``` url: https://youtu.be/Fr5i410qxWE
 
-### postman
+### postman 
+     file postman => EEC_Group_Task.postman_collection.json 
     
 
 ### Usage Skills  in Blog Project

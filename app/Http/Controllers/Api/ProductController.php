@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Helpers\ResponsesHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 use App\Services\ProductService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -54,11 +55,11 @@ class ProductController extends Controller
         );
     }
 
-    public function update(ProductRequest $request, int $productId)
+    public function update(UpdateProductRequest $request, int $productId)
     {
         $data               = $request->validated();
         $data['product_id'] = $productId;
-        $productObj         = $this->productService->updateProduct($data, $request);
+        $productObj         = $this->productService->updateProduct($data);
 
         if (isset($productObj['error'])) {
             return ResponsesHelper::returnError(
@@ -66,8 +67,8 @@ class ProductController extends Controller
                 $productObj['error'],
             );
         }
-        return ResponsesHelper::returnData(
-            $productObj['product'],
+        return ResponsesHelper::returnSuccessMessage(
+            Response::HTTP_OK,
             $productObj['message'],
         );
     }

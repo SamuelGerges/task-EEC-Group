@@ -15,16 +15,9 @@
             </div>
             <div class="form-group">
                 <label for="product_desc">Product Description</label>
-                <input name="product_desc" class="form-control"  {{ $productObj->product_desc }}>
-            </div>
-            <div class="form-group">
-
-                <div>
-                    <img src="{{ $productObj->product_image }}" alt="" style="width: 200px;height: 100px">
-                </div>
-                <label for="product_image">Product Image</label>
-                <input type="file" name="product_image" class="form-control">
-            </div>
+                <textarea  name="product_desc" class="form-control" >
+                    {{ $productObj->product_desc }}
+                </textarea>            </div>
             <button type="submit" name="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

@@ -47,7 +47,6 @@ class ProductRepositry implements IProduct
             ->update([
                 'product_title' => $data['product_title'],
                 'product_desc'  => $data['product_desc'],
-                'product_image' => $data['product_image'],
             ]);
     }
 

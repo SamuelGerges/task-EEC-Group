@@ -1,0 +1,436 @@
+{
+	"info": {
+		"_postman_id": "a8d51141-e6e4-4749-aa82-562feef0c391",
+		"name": "EEC Group Task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27669413"
+	},
+	"item": [
+		{
+			"name": "Pharmacy",
+			"item": [
+				{
+					"name": "Get All Pharmacies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}pharmacies?page=1&search=Mr. Hunter Skiles DDS",
+							"host": [
+								"{{url}}pharmacies"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "search",
+									"value": "Mr. Hunter Skiles DDS"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store new Pharmacy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "pharmacy_name",
+									"value": "El Salam",
+									"type": "text"
+								},
+								{
+									"key": "pharmacy_address",
+									"value": "Cairo",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}pharmacies/store",
+							"host": [
+								"{{url}}pharmacies"
+							],
+							"path": [
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Pharmacy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "pharmacy_name",
+									"value": "El Salam 1",
+									"type": "text"
+								},
+								{
+									"key": "pharmacy_address",
+									"value": "cairo",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}pharmacies/update/506",
+							"host": [
+								"{{url}}pharmacies"
+							],
+							"path": [
+								"update",
+								"506"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Pharmacy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}pharmacies/delete/506",
+							"host": [
+								"{{url}}pharmacies"
+							],
+							"path": [
+								"delete",
+								"506"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Products By Pharmacy Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}pharmacies/products-by-pharmacy/1?page=1",
+							"host": [
+								"{{url}}pharmacies"
+							],
+							"path": [
+								"products-by-pharmacy",
+								"1"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}products?page=1&search=Panadol  extra",
+							"host": [
+								"{{url}}products"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "search",
+									"value": "Panadol  extra"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "is_api_call",
+								"value": "yes",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_title",
+									"value": "Panadol",
+									"type": "text"
+								},
+								{
+									"key": "product_desc",
+									"value": "New Description ",
+									"type": "text"
+								},
+								{
+									"key": "product_image",
+									"type": "file",
+									"src": "/home/samuel/Pictures/instagram_2.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}products/store",
+							"host": [
+								"{{url}}products"
+							],
+							"path": [
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Details for Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}products/get-details/955?page=1",
+							"host": [
+								"{{url}}products"
+							],
+							"path": [
+								"get-details",
+								"955"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update  Product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "is_api_call",
+								"value": "yes",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "product_title",
+									"value": "Panadol  extra",
+									"type": "text"
+								},
+								{
+									"key": "product_desc",
+									"value": "Good ",
+									"type": "text"
+								},
+								{
+									"key": "product_image",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}products/update/1011",
+							"host": [
+								"{{url}}products"
+							],
+							"path": [
+								"update",
+								"1011"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}products/delete/1011",
+							"host": [
+								"{{url}}products"
+							],
+							"path": [
+								"delete",
+								"1011"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pharmacy Products",
+			"item": [
+				{
+					"name": "Search Pharmacy Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}pharmacy/get-data-select2?product_title=Mrs",
+							"host": [
+								"{{url}}pharmacy"
+							],
+							"path": [
+								"get-data-select2"
+							],
+							"query": [
+								{
+									"key": "product_title",
+									"value": "Mrs"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Product To Pharmacy Specefic",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_id",
+									"value": "891",
+									"type": "text"
+								},
+								{
+									"key": "product_price",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "product_quantity",
+									"value": "20",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}pharmacy/471/add-product",
+							"host": [
+								"{{url}}pharmacy"
+							],
+							"path": [
+								"471",
+								"add-product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "product_price",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "product_quantity",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}pharmacy/update-product-in-pharmacy/414",
+							"host": [
+								"{{url}}pharmacy"
+							],
+							"path": [
+								"update-product-in-pharmacy",
+								"414"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Pharmacy Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}pharmacy/delete/414",
+							"host": [
+								"{{url}}pharmacy"
+							],
+							"path": [
+								"delete",
+								"414"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

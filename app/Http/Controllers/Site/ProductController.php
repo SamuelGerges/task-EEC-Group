@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site;
 use App\Helpers\ImgHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 use App\Repositories\Implementation\ProductRepositry;
 use App\Services\ProductService;
 use Illuminate\Http\Request;
@@ -60,11 +61,11 @@ class ProductController extends Controller
         return view('site.products.edit', $product);
     }
 
-    public function update(ProductRequest $request, int $productId)
+    public function update(UpdateProductRequest $request, int $productId)
     {
         $data               = $request->validated();
         $data['product_id'] = $productId;
-        $product            = $this->productService->updateProduct($data, $request);
+        $product            = $this->productService->updateProduct($data);
 
         if (isset($product['error'])) {
             session()->flash('error', $product['error']);

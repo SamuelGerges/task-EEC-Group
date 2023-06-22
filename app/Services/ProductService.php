@@ -60,7 +60,7 @@ class ProductService
         ];
 
     }
-    public function updateProduct($data, $request)
+    public function updateProduct($data)
     {
         $productObj = $this->productRepositry->getProductById($data['product_id']);
 
@@ -70,13 +70,6 @@ class ProductService
             ];
         }
 
-        if($request->has('product_image'))
-        {
-            $image = $request->file('product_image');
-            unlink($productObj->product_image);
-            $data['product_image'] = ImgHelper::uploadImage('products',$image);
-        }
-        $data['product_image'] = $data['product_image'] ?? $productObj->product_image;
         $productObjUpdated = $this->productRepositry->update($data);
 
         if ($productObjUpdated != 1){
